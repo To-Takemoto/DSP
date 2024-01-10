@@ -11,4 +11,4 @@ date = st.text_input("日付")
 if st.button("aaa"):
     date = f"{year}年{month}月{date}日"
     a = db_handle.select_one_data("climate_table", f"date = '{date}'", "*")
-    print(a)    
+    print(a)
