@@ -37,7 +37,7 @@ if st.button("a"):
         check_list = ["date"]
         utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
     except:
-        print("年月が空かも…")
+        st.write("年月が空欄かも…")
         
     
 
