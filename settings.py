@@ -18,7 +18,7 @@ screen_time_table_schema = {
         {"name":"id","type":"INTEGER PRIMARY KEY AUTOINCREMENT"},
         {"name":"date","type":"TEXT"},
         {"name":"SNS","type":"INTEGER"},
-        {"name":"Enteme","type":"INTEGER"},
+        {"name":"Entame","type":"INTEGER"},
         {"name":"Zyouhou","type":"INTEGER"},
         {"name":"Sonohoka","type":"INTEGER"},
         {"name":"Creatibity","type":"INTEGER"},
