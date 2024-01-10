@@ -1,5 +1,5 @@
 import streamlit as st
-import utils
+import utils, settings
 
 st.title("DSP最終課題")
 year = st.text_input("年")
@@ -32,5 +32,5 @@ if st.button("a"):
     result_dic = result_dic | {"date":date}
 
     check_list = ["date"]
-    utils.DBHandler().insert_data("screen_time_table", result_dic, check_list)
+    utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
     
