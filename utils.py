@@ -8,7 +8,6 @@ select_data             :データを戻り値としてselectする関数。該�
 select_one_data         :上に対して、一つのみselectしてくれるモノ
 count_data              :対象テーブルにどれだけデータが格納されてるかをintで返す
 get_columns             :対象テーブルのカラムを返す
-get_record_with_max_id  :読んで字の如く。
 '''
 
 
@@ -165,20 +164,3 @@ class DBHandler:
         columns = [tup[1] for tup in c.fetchall()]
         conn.close()
         return columns
-        
-    def get_record_with_max_id(self, table_name):
-        # データベースに接続
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-
-        # IDが最大のレコードを取得するSQLクエリを実行
-        query = f"SELECT * FROM {table_name} WHERE ID = (SELECT MAX(ID) FROM {table_name})"
-        cursor.execute(query)
-
-        # 結果を取得
-        record = cursor.fetchone()
-
-        # 接続を閉じる
-        conn.close()
-
-        return record
