@@ -6,15 +6,15 @@ year = st.text_input("年")
 month = st.text_input("月")
 date = st.text_input("日付")
 
-sns = st.text_input("SNS")
-Entame = st.text_input("Entame")
-Zyouhou = st.text_input("Zyouhou")
-Sonohoka = st.text_input("Sonohoka")
-Creatibity = st.text_input("Creatibity")
-Sigoto = st.text_input("Sigoto")
-Shopping = st.text_input("Shopping")
-Util = st.text_input("Util")
-Game = st.text_input("Game")
+sns = st.text_input("SNS(分)")
+Entame = st.text_input("Entame(分)")
+Zyouhou = st.text_input("Zyouhou(分)")
+Sonohoka = st.text_input("Sonohoka(分)")
+Creatibity = st.text_input("Creatibity(分)")
+Sigoto = st.text_input("Sigoto(分)")
+Shopping = st.text_input("Shopping(分)")
+Util = st.text_input("Util(分)")
+Game = st.text_input("Game(分)")
 
 if st.button("a"):
 
@@ -23,14 +23,22 @@ if st.button("a"):
     result_list_int = []
 
     for result in result_list:
-        result = int(result)
+        if result == None:
+            result = 0
+        else:
+            result = int(result)
         result_list_int.append(result)
+        
+    try:
+        date = f"{year}年{month}月{date}日"
+        result_dic = dict(zip(type_list, result_list_int))
+        result_dic = result_dic | {"date":date}
 
-    date = f"{year}年{month}月{date}日"
+        check_list = ["date"]
+        utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
+    except:
+        print("年月が空かも…")
+        
     
-    result_dic = dict(zip(type_list, result_list_int))
-    result_dic = result_dic | {"date":date}
 
-    check_list = ["date"]
-    utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
     
