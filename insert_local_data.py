@@ -1,6 +1,11 @@
 import streamlit as st
+import utils
 
 st.title("DSP最終課題")
+year = st.text_input("年")
+month = st.text_input("月")
+date = st.text_input("日付")
+
 sns = st.text_input("SNS")
 Entame = st.text_input("Entame")
 Zyouhou = st.text_input("Zyouhou")
@@ -20,6 +25,12 @@ if st.button("a"):
     for result in result_list:
         result = int(result)
         result_list_int.append(result)
+
+    date = f"{year}年{month}月{date}日"
     
     result_dic = dict(zip(type_list, result_list_int))
+    result_dic = result_dic | {"date":date}
+
+    check_list = ["date"]
+    utils.DBHandler().insert_data("screen_time_table", result_dic, check_list)
     
