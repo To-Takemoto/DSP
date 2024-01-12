@@ -1,5 +1,6 @@
 # OSやエディタなどが自動で生成するファイル
 .DS_Store
+.gitignore
 
 # logディレクトリ以下のファイル
 /log
@@ -10,3 +11,4 @@ DSP_venv
 #その他
 
 /てすと
+DSP_FT.db
