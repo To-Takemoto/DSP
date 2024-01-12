@@ -9,7 +9,7 @@ class ScrapigHandler:
         self.date = self.format_date(date["date"])
 
     def format_date(self, num) -> dict:
-        num = str(f"{num:0{2}}")
+        num = str(f"{num:02}")
         return num
         
     def delete_space(self, passed:str) -> str:
