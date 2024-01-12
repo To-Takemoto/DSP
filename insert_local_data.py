@@ -7,14 +7,14 @@ month = st.text_input("月")
 date = st.text_input("日付")
 
 sns = st.text_input("SNS(分)")
-Entame = st.text_input("Entame(分)")
-Zyouhou = st.text_input("Zyouhou(分)")
-Sonohoka = st.text_input("Sonohoka(分)")
-Creatibity = st.text_input("Creatibity(分)")
-Sigoto = st.text_input("Sigoto(分)")
-Shopping = st.text_input("Shopping(分)")
-Util = st.text_input("Util(分)")
-Game = st.text_input("Game(分)")
+Entame = st.text_input("エンターテイメント(分)")
+Zyouhou = st.text_input("情報と読書(分)")
+Sonohoka = st.text_input("その他(分)")
+Creatibity = st.text_input("クリエイティビティ(分)")
+Sigoto = st.text_input("仕事効率化(分)")
+Shopping = st.text_input("ショッピング(分)")
+Util = st.text_input("ユーティリティ(分)")
+Game = st.text_input("ゲーム(分)")
 
 if st.button("a"):
 
@@ -35,7 +35,7 @@ if st.button("a"):
         result_dic = result_dic | {"date":date}
         check_list = ["date"]
         utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
-        print("Done!")
+        st.write("Done!")
     except ValueError:
         st.write("年月が空欄かも…")
         
