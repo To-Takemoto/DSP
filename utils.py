@@ -41,7 +41,7 @@ class DBHandler:
 
     def data_exists(self, table, data, check_columns=None):
         """
-        Check if the data with specific columns already exists in the table.
+        同様のデータが存在しているか確認
         """
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
@@ -64,10 +64,7 @@ class DBHandler:
 
     def insert_data(self, table, data, check_columns=None):
         """
-        Insert data into the table if it does not already exist, based on specific columns.
-        table: Name of the table to insert data into.
-        data: Dictionary of data to insert.
-        check_columns: List of columns to check for existing data. If None, all columns are checked.
+        check_columnsで指定されたカラムを対象に、すでに同様のデータがあるかどうかを確認し、なければデータを挿入する
         """
         # Check if the data already exists based on specific columns
         if self.data_exists(table, data, check_columns):
