@@ -24,7 +24,7 @@ class DBHandler:
 
     def __init__(self, db_path):
         self.db_path = db_path
-        print(f"connecting to {self.db_path}")
+        #print(f"connecting to {self.db_path}")
 
     def show_data(self, table_name):
         conn = sqlite3.connect(self.db_path)
