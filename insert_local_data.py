@@ -33,9 +33,9 @@ if st.button("a"):
         date = f"{int(year)}年{int(month)}月{int(date)}日"
         result_dic = dict(zip(type_list, result_list_int))
         result_dic = result_dic | {"date":date}
-
         check_list = ["date"]
         utils.DBHandler(settings.db_path).insert_data("screen_time_table", result_dic, check_list)
+        print("Done!")
     except ValueError:
         st.write("年月が空欄かも…")
         
