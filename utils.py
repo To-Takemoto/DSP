@@ -69,7 +69,7 @@ class DBHandler:
         # Check if the data already exists based on specific columns
         if self.data_exists(table, data, check_columns):
             print("Data already exists with specified columns, skipping insert.")
-            return
+            return 1
 
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
