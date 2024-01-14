@@ -4,7 +4,7 @@ import settings
 
 area_handle = be.ClimateArea(settings.db_path)
 
-st.title("DSP最終課題")
+st.header("DSP最終課題 グローバルデータマネージャ")
 year = st.text_input("年")
 month = st.text_input("月")
 day = st.text_input("日付")

@@ -1,7 +1,7 @@
 import streamlit as st
 import utils, settings
 
-st.title("DSP最終課題")
+st.header("DSP最終課題 ローカルデータマネージャ")
 year = st.text_input("年")
 month = st.text_input("月")
 date = st.text_input("日付")
@@ -16,7 +16,7 @@ Shopping = st.text_input("ショッピング(分)")
 Util = st.text_input("ユーティリティ(分)")
 Game = st.text_input("ゲーム(分)")
 
-if st.button("a"):
+if st.button("入力が終わったらこのボタンを押して格納"):
 
     result_list = (sns, Entame, Zyouhou, Sonohoka, Creatibity, Sigoto, Shopping, Util, Game)
     type_list = ("SNS", "Entame", "Zyouhou", "Sonohoka", "Creatibity", "Sigoto", "Shopping", "Util", "Game")
@@ -38,7 +38,3 @@ if st.button("a"):
         st.write("Done!")
     except ValueError:
         st.write("年月が空欄かも…")
-        
-    
-
-    
